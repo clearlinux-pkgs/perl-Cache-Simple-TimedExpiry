@@ -4,12 +4,13 @@
 #
 Name     : perl-Cache-Simple-TimedExpiry
 Version  : 0.27
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Cache-Simple-TimedExpiry-0.27.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Cache-Simple-TimedExpiry-0.27.tar.gz
 Summary  : A lightweight cache with timed expiration
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-Cache-Simple-TimedExpiry-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Module::Install)
 
@@ -20,19 +21,30 @@ No detailed description available
 Summary: dev components for the perl-Cache-Simple-TimedExpiry package.
 Group: Development
 Provides: perl-Cache-Simple-TimedExpiry-devel = %{version}-%{release}
+Requires: perl-Cache-Simple-TimedExpiry = %{version}-%{release}
 
 %description dev
 dev components for the perl-Cache-Simple-TimedExpiry package.
 
 
+%package perl
+Summary: perl components for the perl-Cache-Simple-TimedExpiry package.
+Group: Default
+Requires: perl-Cache-Simple-TimedExpiry = %{version}-%{release}
+
+%description perl
+perl components for the perl-Cache-Simple-TimedExpiry package.
+
+
 %prep
 %setup -q -n Cache-Simple-TimedExpiry-0.27
+cd %{_builddir}/Cache-Simple-TimedExpiry-0.27
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -42,7 +54,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -62,8 +74,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Cache/Simple/TimedExpiry.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Cache::Simple::TimedExpiry.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Cache/Simple/TimedExpiry.pm
