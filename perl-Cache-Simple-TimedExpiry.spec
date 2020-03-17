@@ -4,7 +4,7 @@
 #
 Name     : perl-Cache-Simple-TimedExpiry
 Version  : 0.27
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Cache-Simple-TimedExpiry-0.27.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Cache-Simple-TimedExpiry-0.27.tar.gz
 Summary  : A lightweight cache with timed expiration
@@ -81,4 +81,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Cache/Simple/TimedExpiry.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Cache/Simple/TimedExpiry.pm
