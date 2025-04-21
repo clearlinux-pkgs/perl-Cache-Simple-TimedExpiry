@@ -7,7 +7,7 @@
 #
 Name     : perl-Cache-Simple-TimedExpiry
 Version  : 0.27
-Release  : 29
+Release  : 30
 URL      : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Cache-Simple-TimedExpiry-0.27.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/J/JE/JESSE/Cache-Simple-TimedExpiry-0.27.tar.gz
 Summary  : A lightweight cache with timed expiration
